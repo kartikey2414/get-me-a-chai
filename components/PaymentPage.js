@@ -12,7 +12,7 @@ import { Bounce } from "react-toastify";
 const PaymentPage = ({ username }) => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [paymentform, setPaymentform] = useState({name:"",message:"",amount:""});
+  const [paymentform, setPaymentform] = useState({ name: "", message: "", amount: "" });
 
   const [currentuser, setcurrentUser] = useState({});
   const [payments, setPayments] = useState([]);
@@ -111,9 +111,9 @@ const PaymentPage = ({ username }) => {
       </div>
       <div className="info flex flex-col gap-2 justify-center items-center my-24">
         <div className="font-bold">@{username}</div>
-        <div className="text-slate-400">Lets help {username} get a Chai!</div>
+        <div className="text-slate-400">Let&apos;s help {username} get a Chai!</div>
         <div className="text-slate-400">
-       {payments.length} Payments . ₹{payments.reduce((a,b)=> a+b.amount,0)} raised
+          {payments.length} Payments . ₹{payments.reduce((a, b) => a + b.amount, 0)} raised
         </div>
         <div className="payment flex gap-3 w-[80%] mt-11 flex-col md:flex-row">
           <div className="supporters w-full md:w-1/2 bg-slate-900 rounded-lg p-10 text-white">
@@ -128,14 +128,14 @@ const PaymentPage = ({ username }) => {
                       <span>
                         {p.name} donated{" "}
                         <span className="font-bold">₹{p.amount}</span> with
-                        message "{p.message}"
+                        message &quot;{p.message}&quot;
                       </span>
                     </li>
                   );
                 })}
             </ul>
           </div>
-          <div className="make-paymentw-full md:w-1/2 bg-slate-900 rounded-lg p-10 text-white">
+          <div className="make-payment w-full md:w-1/2 bg-slate-900 rounded-lg p-10 text-white">
             <h2 className="text-2xl font-bold my-5">Make a Payment</h2>
             <div className="flex gap-2 flex-col">
               <input
@@ -168,7 +168,8 @@ const PaymentPage = ({ username }) => {
                 className="text-white rounded-lg bg-gradient-to-br from-purple-700 disabled:from-purple-100 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium text-sm px-4 py-2.5 text-center leading-5"
                 disabled={
                   (paymentform.name?.length || 0) < 3 ||
-                  (paymentform.message?.length || 0) < 4 ||(paymentform.amount?.length<1)
+                  (paymentform.message?.length || 0) < 4 ||
+                  (paymentform.amount?.length < 1)
                 }
               >
                 Pay
